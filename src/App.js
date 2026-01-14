@@ -1,23 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import BotonIncrementar from "./BotonIncrementar";
+// import "./App.css";
+// import InputUsuario from "./InputUsuario";
+// import SaludoUsuario from "./SaludoUsuario";
 
 function App() {
-  return (
+  const [contador, setContador] = useState(0);
+  const manejarIncremento = () =>{
+    setContador(contador +1);
+  };
+  // const [nombre, setNombre] = useState("");
+
+  return(
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Contador: {contador}</h1>
+      <BotonIncrementar onIncrementar={manejarIncremento}></BotonIncrementar>
+
+      {/* <InputUsuario nombre={nombre} setNombre={setNombre}/>
+
+      <SaludoUsuario nombre={nombre}/> */}
     </div>
   );
 }
